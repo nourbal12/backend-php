@@ -1,0 +1,23 @@
+<?php 
+include '../allow_header.php';
+include '../db_connexion.php';
+include '../article.php';
+
+
+
+
+ $servername = "localhost";
+ $username = "root";
+ $password = "";
+ $dbname = "phpcrud";
+
+
+
+$db = new DbConnexion($servername, $username, $password, $dbname);
+$conn = $db->getConnexion();
+
+    
+$article = new Article($conn);
+$article->create(file_get_contents('php://input'));
+  
+?>
